@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #333;
@@ -17,6 +21,7 @@ nav {
     justify-content: space-between;
     padding: 20px 50px;
     align-items: center;
+    background: lightgray;
 }
 
 nav .logo {
@@ -40,8 +45,9 @@ nav ul li a {
 }
 
 nav li:hover {
-    background-color: lightgray;
+    background-color: grey;
     transform: scale(1.1);
+    border-radius: 5px;
   }
 
 /* Présentation */
@@ -88,11 +94,15 @@ nav li:hover {
     width: 400px;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .presentation-image img:hover {
     transition: transform 0.3s;
     transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
 /* Compétences */
@@ -121,6 +131,9 @@ nav li:hover {
 
 /* Réalisations */
 .realisations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 50px 100px;
     max-width: 1200px;
     margin: auto;
@@ -156,6 +169,9 @@ nav li:hover {
     height: 380px;
     object-fit: cover;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 a img {
@@ -174,12 +190,16 @@ a img {
 }
 
 .temoignage {
-    background-color: #f9f9f9;
+    background-color: lightgray;
     padding: 20px;
     margin: 10px;
     display: inline-block;
     max-width: 300px;
     text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .temoignage img {
@@ -199,7 +219,7 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 30px 50px;
-    background-color: #f4f4f4;
+    background-color: lightgray;
     align-items: center;
 }
 
@@ -220,4 +240,101 @@ footer {
     font-size: 1.5em;
     margin-right: 10px;
     color: #333;
+}
+
+/* Styles Responsive */
+@media (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .presentation {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .presentation-image img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .competences {
+        flex-direction: column;
+    }
+
+    .competence {
+        margin-bottom: 20px;
+    }
+
+    .realisation-grid {
+        flex-direction: column;
+    }
+
+    .realisation-item img {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .presentation h1 {
+        font-size: 2em;
+    }
+
+    .presentation-text p {
+        font-size: 0.9em;
+    }
+
+    .temoignages {
+        padding: 20px;
+    }
+
+    .temoignage {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px;
+    }
+
+    .button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .presentation h1 {
+        font-size: 1.5em;
+    }
+
+    .presentation-text p {
+        font-size: 0.8em;
+    }
+
+    .realisation-item img {
+        max-width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons i {
+        margin: 5px;
+    }
 }
