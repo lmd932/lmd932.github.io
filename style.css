@@ -13,6 +13,13 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
     line-height: 1.6;
+    opacity: 0; /* Début caché pour l'animation de chargement */
+    animation: fadeIn 1s forwards; /* Animation de fondu au chargement de la page */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Navigation */
@@ -22,6 +29,12 @@ nav {
     padding: 20px 50px;
     align-items: center;
     background: lightgray;
+    animation: slideIn 1s ease-out; /* Animation d'apparition de la barre de navigation */
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
 }
 
 nav .logo {
@@ -42,13 +55,15 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    transition: color 0.3s ease; /* Transition pour le changement de couleur */
 }
 
 nav li:hover {
     background-color: grey;
     transform: scale(1.1);
     border-radius: 5px;
-  }
+    transition: transform 0.3s, background-color 0.3s;
+}
 
 /* Présentation */
 .presentation {
@@ -58,6 +73,13 @@ nav li:hover {
     padding: 50px 100px;
     max-width: 1200px;
     margin: auto;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards; /* Animation d'apparition de la section */
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .presentation-text h4 {
@@ -68,6 +90,12 @@ nav li:hover {
 .presentation-text h1 {
     font-size: 3em;
     font-weight: bold;
+    animation: textPopIn 1s ease-out forwards; /* Animation d'apparition du texte */
+}
+
+@keyframes textPopIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .presentation-text p {
@@ -83,12 +111,13 @@ nav li:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s; /* Transition du bouton */
 }
 
 .button:hover {
     background-color: purple;
-    transform: scale(1.1);
-  }
+    transform: scale(1.1); /* Agrandissement au survol */
+}
 
 .presentation-image img {
     width: 400px;
@@ -96,12 +125,11 @@ nav li:hover {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition fluide pour l'image */
 }
 
 .presentation-image img:hover {
-    transition: transform 0.3s;
-    transform: scale(1.1);
+    transform: scale(1.1); /* Agrandissement de l'image au survol */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
@@ -111,14 +139,26 @@ nav li:hover {
     justify-content: space-around;
     padding: 50px;
     text-align: center;
+    animation: fadeInUp 1.5s ease-out forwards; /* Animation d'apparition */
 }
 
-.competence .i {
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    margin: 0 auto;
-    border-radius: 5px;
+.competence {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards; /* Animation pour chaque compétence */
+    animation-delay: 0.3s; /* Décalage pour que les compétences apparaissent une par une */
+}
+
+.competence:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.competence:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+.competence i {
+    font-size: 2em;
+    color: #333;
 }
 
 .competence h3 {
@@ -137,6 +177,8 @@ nav li:hover {
     padding: 50px 100px;
     max-width: 1200px;
     margin: auto;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards; /* Animation d'apparition de la section */
 }
 
 .realisations h2 {
@@ -151,9 +193,20 @@ nav li:hover {
 }
 
 .realisation-item {
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards; /* Animation d'apparition de chaque projet */
+    animation-delay: 0.3s;
+}
+
+.realisation-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.realisation-item:nth-child(3) {
+    animation-delay: 0.9s;
 }
 
 .realisation-item h3 {
@@ -165,28 +218,27 @@ nav li:hover {
 }
 
 .realisation-item img {
-    width: 534px;
-    height: 380px;
+    width: 400px;
+    height: 334px;
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition fluide pour l'image */
 }
 
 a img {
     transition: transform 0.3s;
-  }
-  
-  a img:hover {
-    transform: scale(1.1);
-  }
-  
+}
+
+a img:hover {
+    transform: scale(1.1); /* Agrandissement de l'image au survol */
+}
 
 /* Témoignages */
 .temoignages {
     padding: 50px;
     text-align: center;
+    animation: fadeInUp 1.5s ease-out forwards; /* Animation d'apparition de la section */
 }
 
 .temoignage {
@@ -198,8 +250,12 @@ a img {
     text-align: left;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition fluide */
+}
+
+.temoignage:hover {
+    transform: translateY(-10px); /* Animation de déplacement au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
 .temoignage img {
@@ -221,6 +277,7 @@ footer {
     padding: 30px 50px;
     background-color: lightgray;
     align-items: center;
+    animation: slideIn 1s ease-out forwards; /* Animation de la barre de footer */
 }
 
 .footer-content {
@@ -240,6 +297,11 @@ footer {
     font-size: 1.5em;
     margin-right: 10px;
     color: #333;
+    transition: transform 0.3s ease; /* Transition fluide pour les icônes sociales */
+}
+
+.social-icons i:hover {
+    transform: scale(1.2); /* Agrandissement au survol des icônes */
 }
 
 /* Styles Responsive */
@@ -255,86 +317,20 @@ footer {
         align-items: center;
     }
 
-    nav ul li {
-        margin: 10px 0;
-    }
-
     .presentation {
         flex-direction: column;
         padding: 20px;
-        text-align: center;
     }
 
-    .presentation-image img {
-        width: 100%;
-        max-width: 300px;
+    .presentation-text {
+        text-align: center;
     }
 
     .competences {
         flex-direction: column;
     }
 
-    .competence {
-        margin-bottom: 20px;
-    }
-
     .realisation-grid {
         flex-direction: column;
-    }
-
-    .realisation-item img {
-        width: 100%;
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .presentation h1 {
-        font-size: 2em;
-    }
-
-    .presentation-text p {
-        font-size: 0.9em;
-    }
-
-    .temoignages {
-        padding: 20px;
-    }
-
-    .temoignage {
-        max-width: 100%;
-        margin: 10px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    nav {
-        padding: 10px;
-    }
-
-    .button {
-        padding: 8px 15px;
-        font-size: 0.9em;
-    }
-
-    .presentation h1 {
-        font-size: 1.5em;
-    }
-
-    .presentation-text p {
-        font-size: 0.8em;
-    }
-
-    .realisation-item img {
-        max-width: 100%;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .social-icons i {
-        margin: 5px;
     }
 }
